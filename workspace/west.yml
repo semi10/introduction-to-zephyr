@@ -15,6 +15,7 @@ manifest:
 
         name-allowlist:
           - cmsis
+          - hal_stm32
           - hal_xtensa
           - hal_espressif
           - hal

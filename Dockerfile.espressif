@@ -13,7 +13,7 @@ ARG VS_CODE_EXT_CPPTOOLS_VERSION=1.22.10
 ARG VS_CODE_EXT_HEX_EDITOR_VERSION=1.11.1
 ARG VS_CODE_EXT_CMAKETOOLS_VERSION=1.19.52
 ARG VS_CODE_EXT_NRF_DEVICETREE_VERSION=2024.9.26
-ARG TOOLCHAIN_LIST="-t xtensa-espressif_esp32_zephyr-elf -t xtensa-espressif_esp32s2_zephyr-elf -t xtensa-espressif_esp32s3_zephyr-elf -t riscv64-zephyr-elf"
+ARG TOOLCHAIN_LIST="-t xtensa-espressif_esp32_zephyr-elf -t xtensa-espressif_esp32s2_zephyr-elf -t xtensa-espressif_esp32s3_zephyr-elf -t riscv64-zephyr-elf -t arm-zephyr-eabi"
 ARG WGET_ARGS="-q --show-progress --progress=bar:force:noscroll"
 ARG VIRTUAL_ENV=/opt/venv
 
@@ -131,7 +131,7 @@ RUN cd /opt/toolchains && \
 
 # Install module-specific blobs
 RUN cd /opt/toolchains && \
-    west blobs fetch hal_espressif
+    west blobs fetch hal_espressif hal_stm32
 
 #-------------------------------------------------------------------------------
 # Zephyr SDK
@@ -155,6 +155,7 @@ RUN cd /opt/toolchains/zephyr-sdk-${ZEPHYR_SDK_VERSION} && \
     tar xf hosttools_linux-${HOSTTYPE}.tar.xz && \
     rm hosttools_linux-${HOSTTYPE}.tar.xz && \
     bash zephyr-sdk-${HOSTTYPE}-hosttools-standalone-*.sh -y -d .
+
 
 #-------------------------------------------------------------------------------
 # VS Code Server

@@ -14,6 +14,24 @@ manifest:
     - name: acpica
       revision: 8d24867bc9c9d81c81eeac59391cda59333affd4
       path: modules/lib/acpica
+    - name: hal_stm32
+      revision: main
+      path: modules/hal/stm32
+      url: https://github.com/zephyrproject-rtos/hal_stm32.git
+      groups:
+        - hal
+    - name: cmsis
+      revision: master
+      path: modules/hal/cmsis
+      url: https://github.com/zephyrproject-rtos/cmsis.git
+      groups:
+        - hal
+    - name: stm32_cmsis
+      revision: master
+      path: modules/hal/st_cmsis
+      url: https://github.com/STMicroelectronics/cmsis_device_f4.git
+      groups:
+        - hal
     - name: edtt
       revision: b9ca3c7030518f07b7937dacf970d37a47865a76
       path: tools/edtt
