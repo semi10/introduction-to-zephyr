@@ -1,0 +1,6 @@
+/ {
+    aliases {
+        my-led = &user_led;
+        my-button = &user_button;
+    };
+};

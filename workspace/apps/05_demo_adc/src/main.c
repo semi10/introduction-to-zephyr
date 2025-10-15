@@ -3,7 +3,7 @@
 #include <zephyr/drivers/adc.h>
 
 // Settings
-static const int32_t sleep_time_ms = 100;
+static const int32_t sleep_time_ms = 1000;
 
 // Get Devicetree configurations
 #define MY_ADC_CH DT_ALIAS(my_adc_channel)
