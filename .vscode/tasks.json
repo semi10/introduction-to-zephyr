@@ -1,0 +1,17 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "podman build",
+            "type": "shell",
+            "command": "podman build -t env-zephyr-espressif -f ./Dockerfile.espressif"
+        },
+        {
+            "label": "podman run",
+            "type": "shell",
+            "command": "podman run --log-level=debug --name Zephyr-Introduction --rm -it -p 2222:22 -p 3333:3333 -p 8800:8800 -v ${workspaceFolder}/workspace:/workspace env-zephyr-espressif"
+        }
+    ]
+}

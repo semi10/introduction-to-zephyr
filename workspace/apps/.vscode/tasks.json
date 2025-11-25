@@ -1,0 +1,32 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "bash",
+            "args": 
+            [
+                "-lc",
+                "cd /workspace/apps/${input:prjChoice} && west build -p always -b blackpill_f411ce -- -DDTC_OVERLAY_FILE=boards/blackpill_f411ce.overlay"
+            ],
+        }
+    ],
+    "inputs": 
+    [
+        {
+            "id": "prjChoice",
+            "type": "pickString",
+            "description": "Choose project",
+            "options": 
+            [
+                "04_solution_button_led",
+                "05_demo_adc",
+                "05_solution_pwm_knob"
+            ],
+            "default": "dev"
+        }
+    ],
+}
