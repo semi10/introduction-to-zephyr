@@ -10,7 +10,7 @@
             "args": 
             [
                 "-lc",
-                "cd /workspace/apps/${input:prjChoice} && west build -p always -b blackpill_f411ce -- -DDTC_OVERLAY_FILE=boards/blackpill_f411ce.overlay"
+                "cd /workspace/apps/${input:prjChoice} && west build -p always -b ${input:brdChoice} -- -DDTC_OVERLAY_FILE=boards/${input:brdChoice}.overlay"
             ],
         }
     ],
@@ -24,9 +24,21 @@
             [
                 "04_solution_button_led",
                 "05_demo_adc",
-                "05_solution_pwm_knob"
+                "05_solution_pwm_knob",
+                "06_demo_device_driver"
             ],
             "default": "dev"
+        },
+        {
+            "id": "brdChoice",
+            "type": "pickString",
+            "description": "Choose board",
+            "options": 
+            [
+                "blackpill_f411ce",
+                "esp32c6_devkitc",
+            ],
+            "default": "blackpill_f411ce"
         }
     ],
 }
