@@ -22,6 +22,7 @@
             "description": "Choose project",
             "options": 
             [
+                "01_blink",
                 "04_solution_button_led",
                 "05_demo_adc",
                 "05_solution_pwm_knob",

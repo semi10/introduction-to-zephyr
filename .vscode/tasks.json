@@ -11,7 +11,7 @@
         {
             "label": "podman run",
             "type": "shell",
-            "command": "podman run --log-level=debug --name Zephyr-Introduction --rm -it -p 2222:22 -p 3333:3333 -p 8800:8800 -v ${workspaceFolder}/workspace:/workspace env-zephyr-espressif"
+            "command": "podman run --log-level=debug --name Zephyr-Introduction --rm -it --network=host -v ${workspaceFolder}/workspace:/workspace env-zephyr-espressif"
         }
     ]
 }
