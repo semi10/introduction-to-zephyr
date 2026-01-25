@@ -1,0 +1,14 @@
+/ {
+    aliases {
+        my-button = &key_button;
+    };
+
+    gpio_keys {
+        compatible = "gpio-keys";
+
+        key_button: button
+        {
+            gpios = <&gpioa 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        };
+    };
+};

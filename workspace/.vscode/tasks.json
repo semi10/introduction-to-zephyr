@@ -26,7 +26,8 @@
                 "04_solution_button_led",
                 "05_demo_adc",
                 "05_solution_pwm_knob",
-                "06_demo_device_driver"
+                "06_demo_device_driver",
+                "09_demo_gpio_interrupt"
             ],
             "default": "dev"
         },
