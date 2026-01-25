@@ -27,7 +27,8 @@
                 "05_demo_adc",
                 "05_solution_pwm_knob",
                 "06_demo_device_driver",
-                "09_demo_gpio_interrupt"
+                "09_demo_gpio_interrupt",
+                "09_demo_counter_interrupt"
             ],
             "default": "dev"
         },
