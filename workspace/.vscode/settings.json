@@ -1,3 +1,10 @@
 {
     "cmake.ignoreCMakeListsMissing": true,
+    "cmake.configureEnvironment": {
+        "ZEPHYR_BASE": "/opt/toolchains/zephyr",
+        "ZEPHYR_SDK_INSTALL_DIR": "/opt/toolchains/zephyr-sdk-0.16.8",
+        "WEST_TOPDIR": "/opt/toolchains"
+    },
+    "C_Cpp.intelliSenseEngine": "default",
+    "C_Cpp.autocompleteAddParentheses": true
 }

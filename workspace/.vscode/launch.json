@@ -6,17 +6,18 @@
             "request": "launch",
             "program": "${input:elfPath}",
             "args": [],
-            "stopAtEntry": true,
+            "stopAtEntry": false,
             "cwd":  "${workspaceFolder}",
             "MIMode": "gdb",
             "miDebuggerPath": "/opt/toolchains/zephyr-sdk-0.16.8/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
-            "miDebuggerServerAddress": "192.168.0.149:3333",
+            "miDebuggerServerAddress": "localhost:3333",
+            "preLaunchTask": "Start OpenOCD",
             "setupCommands": [
                 {
                     "description": "Pretty print for gdb",
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
-                }
+                },
             ]
         }
     ],

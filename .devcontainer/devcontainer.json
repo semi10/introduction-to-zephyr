@@ -28,7 +28,9 @@
     "-p",
     "3333:3333",
     "-p",
-    "8800:8800"
+    "8800:8800",
+    "--device=/dev/bus/usb",
+    "--privileged"
   ],
   "remoteUser": "root"
 }

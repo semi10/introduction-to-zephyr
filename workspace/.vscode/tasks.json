@@ -4,14 +4,42 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Start OpenOCD",
+            "type": "shell",
+            "command": "/opt/toolchains/zephyr-sdk-0.16.8/sysroots/x86_64-pokysdk-linux/usr/bin/openocd",
+            "args": [
+                "-f", "interface/stlink.cfg",
+                "-c", "transport select hla_swd",
+                "-c", "adapter speed 1000",
+                "-f", "target/stm32f4x.cfg"
+            ],
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": { "regexp": "^$" },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Open On-Chip Debugger",
+                    "endsPattern": "Listening on port 3333"
+                }
+            },
+            "presentation": { "reveal": "silent" }
+        },
+        {
             "label": "build",
             "type": "shell",
             "command": "bash",
-            "args": 
+            "args":
             [
                 "-lc",
                 "cd /workspace/apps/${input:prjChoice} && west build -p always -b ${input:brdChoice} -- -DDTC_OVERLAY_FILE=boards/${input:brdChoice}.overlay"
             ],
+            "options": {
+                "env": {
+                    "ZEPHYR_BASE": "/opt/toolchains/zephyr",
+                    "ZEPHYR_SDK_INSTALL_DIR": "/opt/toolchains/zephyr-sdk-0.16.8",
+                    "WEST_TOPDIR": "/opt/toolchains"
+                }
+            }
         }
     ],
     "inputs": 

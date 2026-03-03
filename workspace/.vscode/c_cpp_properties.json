@@ -1,21 +1,82 @@
 {
     "configurations": [
         {
-            "name": "Zephyr Dev Container",
+            "name": "Zephyr ARM (STM32)",
+            "compilerPath": "/opt/toolchains/zephyr-sdk-0.16.8/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc",
+            "intelliSenseMode": "linux-gcc-arm",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "compileCommands": "${workspaceFolder}/apps/09_demo_counter_interrupt/build/compile_commands.json",
             "includePath": [
-                "${workspaceFolder:/workspace}/**",  // Refers to /workspace
-                "${workspaceFolder:/opt/toolchains/zephyr}/**"    // Refers to /opt/toolchains/zephyr
+                "${workspaceFolder}/**",
+                "/opt/toolchains/zephyr/include",
+                "${workspaceFolder}/apps/09_demo_counter_interrupt/build/zephyr/include/generated",
+                "${workspaceFolder}/apps/09_demo_counter_interrupt/build/zephyr/include/generated/zephyr",
+                "/opt/toolchains/zephyr/soc/st/stm32",
+                "/opt/toolchains/zephyr/soc/st/stm32/common",
+                "/opt/toolchains/zephyr/soc/st/stm32/stm32f4x",
+                "/opt/toolchains/zephyr/drivers",
+                "/opt/toolchains/zephyr/modules/cmsis",
+                "/opt/toolchains/modules/hal/cmsis/CMSIS/Core/Include",
+                "/opt/toolchains/modules/hal/stm32/stm32cube/stm32f4xx/soc",
+                "/opt/toolchains/modules/hal/stm32/stm32cube/stm32f4xx/drivers/include",
+                "/opt/toolchains/modules/hal/stm32/stm32cube/common_ll/include",
+                "/opt/toolchains/zephyr-sdk-0.16.8/arm-zephyr-eabi/arm-zephyr-eabi/include",
+                "/opt/toolchains/zephyr-sdk-0.16.8/arm-zephyr-eabi/lib/gcc/arm-zephyr-eabi/12.2.0/include"
+            ],
+            "defines": [
+                "__ZEPHYR__=1",
+                "KERNEL",
+                "__LINUX_ERRNO_EXTENSIONS__",
+                "CONFIG_ARM=1",
+                "CONFIG_CPU_CORTEX_M4=1",
+                "STM32F411xE",
+                "USE_HAL_DRIVER",
+                "USE_FULL_LL_DRIVER"
             ],
             "browse": {
                 "path": [
-                    "${workspaceFolder:/workspace}/**",
-                    "${workspaceFolder:/opt/toolchains/zephyr}/**"
+                    "${workspaceFolder}",
+                    "/opt/toolchains/zephyr/include",
+                    "/opt/toolchains/modules/hal/cmsis/CMSIS/Core/Include",
+                    "/opt/toolchains/modules/hal/stm32"
                 ],
                 "limitSymbolsToIncludedHeaders": true
-            },
+            }
+        },
+        {
+            "name": "Zephyr RISC-V (ESP32-C6)",
+            "compilerPath": "/opt/toolchains/zephyr-sdk-0.16.8/riscv64-zephyr-elf/bin/riscv64-zephyr-elf-gcc",
+            "intelliSenseMode": "linux-gcc-x64",
             "cStandard": "c11",
-            "cppStandard": "c++11",
-            "intelliSenseMode": "linux-clang-x64"
+            "cppStandard": "c++14",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/opt/toolchains/zephyr/include",
+                "/opt/toolchains/zephyr/soc/espressif/esp32c6",
+                "/opt/toolchains/zephyr/soc/espressif/common",
+                "/opt/toolchains/zephyr/drivers",
+                "/opt/toolchains/modules/hal/espressif/components/esp_common/include",
+                "/opt/toolchains/modules/hal/espressif/components/esp_hw_support/include",
+                "/opt/toolchains/modules/hal/espressif/zephyr/esp32c6",
+                "/opt/toolchains/zephyr-sdk-0.16.8/riscv64-zephyr-elf/riscv64-zephyr-elf/include",
+                "/opt/toolchains/zephyr-sdk-0.16.8/riscv64-zephyr-elf/lib/gcc/riscv64-zephyr-elf/12.2.0/include"
+            ],
+            "defines": [
+                "__ZEPHYR__=1",
+                "KERNEL",
+                "__LINUX_ERRNO_EXTENSIONS__",
+                "CONFIG_RISCV=1",
+                "CONFIG_SOC_ESP32C6=1"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "/opt/toolchains/zephyr/include",
+                    "/opt/toolchains/modules/hal/espressif"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
         }
     ],
     "version": 4

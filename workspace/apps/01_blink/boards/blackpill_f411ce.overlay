@@ -3,3 +3,7 @@
         my-led = &user_led;
     };
 };
+
+&gpioc {
+    status = "okay";
+};
